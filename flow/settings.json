@@ -1,0 +1,19 @@
+{
+    "device": "\\Device\\NPF_{28D7B461-0F85-499A-B5D2-D4D06D223826}",
+    "promisc": 1,
+    "snaplen": 10240,
+    "bpf": {
+        "expr": "tcp or udp",
+        "opt": 1,
+        "netmask": "0.0.0.0"
+    },
+    "capture_type": ["http", "dns"],
+    "mysql": {
+        "host": "192.168.48.121",
+        "port": 3306,
+        "user": "root",
+        "password": "123456",
+        "db": "TMD",
+        "charset": "utf8"
+    }
+}
