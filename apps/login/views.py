@@ -12,9 +12,9 @@ from utils.utils_common import dumps_result, json_loads, cross_domain
 
 def login(request):
     result = dict()
-    rev_json_body = json_loads(request.body)
-    username = rev_json_body.get('username', None)
-    password = rev_json_body.get('password', None)
+    rev_body = json_loads(request.body)
+    username = rev_body.get('username', None)
+    password = rev_body.get('password', None)
     if not username or not password:
         result["status"], result["data"] = 1, "failed"
 
@@ -29,7 +29,7 @@ def login(request):
                                                "session_id": request.session.session_key,
                                                "authority": authority}
     else:
-        result["status"], result["data"] = 1001, "failed"
+        result["status"], result["data"] = 1, "failed"
 
     response = HttpResponse(dumps_result(result))
     return cross_domain(response)
